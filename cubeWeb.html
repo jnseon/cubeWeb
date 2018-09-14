@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>3d website</title>
+	<style>
+		*{margin: 0; padding: 0; color:#333333}
+		
+		div#wrap{
+			margin-top:150px;
+			margin-bottom: 150px;
+			perspective: 1000px;
+			perspective-origin: 50% 50%;
+		}
+		
+		
+		#cube {
+    		width: 200px;
+			height: 200px;
+    		margin: 1.5em auto;
+    		transform-style: preserve-3d;
+    		transform: rotateX(-45deg) rotateY(30deg);
+			position: relative;
+}
+		
+		.side {
+   			position: absolute;
+   			width: 100%;
+    		height: 100%;
+    		background: rgba(100,100,100,0.5);
+    		border: 1px solid black;
+    		text-align: center;
+    		line-height: 2em;
+			box-sizing: border-box;
+		}
+		
+		.front {transform: translateZ(100px);}
+		.top {transform: rotateX(-270deg) translateZ(100px);}
+		.right {transform: rotateY(-270deg) translateZ(100px);}
+		.left {transform: rotateY(270deg) translateZ(100px);}
+		.bottom {transform: rotateX(270deg) translateZ(100px);}
+		.back {transform: rotateY(-180deg) translateZ(100px);}
+		
+		@keyframes rotate {
+  				from {
+    				transform: rotateX(0deg) rotateY(0deg);
+  					}
+  
+  				to {
+    				transform: rotateX(360deg) rotateY(360deg);
+  					}
+		}
+		
+		#cube {
+                animation: rotate 20s infinite linear;
+            }
+		
+		
+	</style>
+	
+</head>
+
+<body>
+	
+	<div id="wrap">
+		
+		<div id="cube">
+			
+			<div class="side front">FRONT</div>
+			<div class="side back">BACK</div>
+			<div class="side top">TOP</div>
+			<div class="side bottom">BOTTOM</div>
+			<div class="side left">LEFT</div>
+			<div class="side right">RIGHT</div>
+			
+		</div>
+		
+	</div>
+</body>
+</html>
